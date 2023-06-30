@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * get_print - selects the printing function depending on the conversion specifier passed to _printf
+ * get_print - selects the printing function
+ * Depends on the conversion specifier passed to _printf
  *
  * @s: holds the conversion specifier
  *
@@ -11,17 +12,17 @@ int (*get_print(char s))(va_list, flags_t *)
 {
 	ph func_arr[] = {
 		{'i', print_int},
-		{'s', print_string},
-		{'c', print_char},
+		{'s', print_chars},
+		{'c', _print_char},
 		{'d', print_int},
 		{'u', print_unsigned},
-		{'x', print_hex},
-		{'X', print_hex_big},
+		{'x', print_hex_lower},
+		{'X', print_hex_upper},
 		{'b', print_binary},
 		{'o', print_octal},
 		{'R', print_rot13},
 		{'r', print_rev},
-		{'S', print_bigS},
+		{'S', _printn},
 		{'p', print_address},
 		{'%', print_percent}
 		};
